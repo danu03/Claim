@@ -32,5 +32,7 @@ struct ClaimDetailView: View {
 }
 
 #Preview {
-    ClaimDetailView(claim: Claim(userId: 1, id: 2, title: "Claim 1", body: "Claim desc"))
+    ClaimDetailView(
+        claim: Claim(userId: 1, id: 2, title: "Claim 1", body: "Claim desc")
+    )
 }

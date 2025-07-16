@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ClaimServiceProtocol {
     func fetchClaims() async throws -> [Claim]
@@ -13,13 +14,18 @@ protocol ClaimServiceProtocol {
 
 class ClaimService: ClaimServiceProtocol {
     func fetchClaims() async throws -> [Claim] {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let url = "https://jsonplaceholder.typicode.com/posts"
 
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw URLError(.badServerResponse)
+        let response = await AF.request(url)
+            .validate(statusCode: 200..<300)
+            .serializingDecodable([Claim].self)
+            .response
+
+        switch response.result {
+        case .success(let claims):
+            return claims
+        case .failure(let error):
+            throw error
         }
-
-        return try JSONDecoder().decode([Claim].self, from: data)
     }
 }

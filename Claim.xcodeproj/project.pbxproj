@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3D6649292E2779DA00627CA3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6649282E2779DA00627CA3 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3D6648FF2E27616100627CA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6649292E2779DA00627CA3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,8 @@
 			);
 			name = Claim;
 			packageProductDependencies = (
+				3D6649282E2779DA00627CA3 /* Alamofire */,
+				3D66492A2E2779DA00627CA3 /* AlamofireDynamic */,
 			);
 			productName = Claim;
 			productReference = 3D6648EE2E27615E00627CA3 /* Claim.app */;
@@ -566,6 +573,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D6649282E2779DA00627CA3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D66491B2E2761C800627CA3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3D66492A2E2779DA00627CA3 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D66491B2E2761C800627CA3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D6648E62E27615E00627CA3 /* Project object */;
 }
