@@ -1,14 +1,13 @@
 //
-//  ClaimTests.swift
+//  ClaimListViewModelTests.swift
 //  ClaimTests
 //
 //  Created by Danu  on 16/7/25.
 //
 
 import XCTest
-@testable import Claim
 
-final class ClaimTests: XCTestCase {
+final class ClaimListViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
