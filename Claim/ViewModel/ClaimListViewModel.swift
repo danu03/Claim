@@ -46,9 +46,9 @@ class ClaimListViewModel: ObservableObject {
             return
         }
 
-        filteredClaims = claims.filter {
-            $0.title.localizedCaseInsensitiveContains(searchText) ||
-            $0.body.localizedCaseInsensitiveContains(searchText)
+        filteredClaims = claims.filter { claims in
+            claims.title.localizedCaseInsensitiveContains(searchText) ||
+            claims.body.localizedCaseInsensitiveContains(searchText)
         }
     }
 }

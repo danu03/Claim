@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ClaimListView.swift
 //  Claim
 //
 //  Created by Danu  on 16/7/25.
@@ -31,7 +31,6 @@ struct ClaimListView: View {
                                     .lineLimit(2)
                                     .foregroundColor(.gray)
                                     .padding(.bottom, 4)
-                                // Optional
                                 Text(
                                     "Claim ID: \(claim.id) | User ID: \(claim.userId)"
                                 )
