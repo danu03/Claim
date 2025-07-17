@@ -31,11 +31,10 @@ struct ClaimListView: View {
                                     .lineLimit(2)
                                     .foregroundColor(.gray)
                                     .padding(.bottom, 4)
-                                Text(
-                                    "Claim ID: \(claim.id) | User ID: \(claim.userId)"
-                                )
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                                // Optional
+                                Text("Claim ID: \(String(claim.id)) | User ID: \(String(claim.userId)) | Name: \(viewModel.getUserName(for: claim.userId))")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
@@ -51,6 +50,7 @@ struct ClaimListView: View {
             }
             .task {
                 await viewModel.fetchClaims()
+                await viewModel.fetchUser()
             }
         }
     }

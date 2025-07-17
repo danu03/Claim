@@ -9,6 +9,10 @@ import XCTest
 @testable import Claim
 
 class MockClaimService: ClaimServiceProtocol {
+    func fetchUser() async throws -> [Users] {
+        return [Users(id: 1, name: "Name")]
+    }
+    
     func fetchClaims() async throws -> [Claim] {
         return [Claim(userId: 1, id: 1, title: "Test Title", body: "Test body")]
     }

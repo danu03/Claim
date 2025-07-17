@@ -10,6 +10,7 @@ import Foundation
 @MainActor
 class ClaimListViewModel: ObservableObject {
     @Published var claims: [Claim] = []
+    @Published var users: [Users] = []
     @Published var filteredClaims: [Claim] = []
     @Published var isLoading = false
     @Published var searchText = "" {
@@ -39,6 +40,18 @@ class ClaimListViewModel: ObservableObject {
         }
         isLoading = false
     }
+    
+    func fetchUser() async {
+        isLoading = true
+        errorMessage = ""
+        do {
+            let result = try await service.fetchUser()
+            users = result
+        } catch {
+            errorMessage = "Failed to fetch claim: \(error.localizedDescription)"
+        }
+        isLoading = false
+    }
 
     private func filterClaims() {
         guard !searchText.isEmpty else {
@@ -50,5 +63,9 @@ class ClaimListViewModel: ObservableObject {
             claims.title.localizedCaseInsensitiveContains(searchText) ||
             claims.body.localizedCaseInsensitiveContains(searchText)
         }
+    }
+    
+    func getUserName(for userId: Int) -> String {
+        users.first(where: { user in user.id == userId })?.name ?? "Unknown"
     }
 }
